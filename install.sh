@@ -15,8 +15,11 @@ fi
 
 cd $(dirname $0)
 
-for each in $(cat commandlist.txt) ; do
-	sudo /bin/cp -av $each $TARGET
-done
+installit()
+{
+	sudo /bin/cp -av $1 $TARGET
+}
 
+installit clearcache
+installit updatesrpms
 
