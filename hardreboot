@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# This script performs the equivalent of hitting the reset button after
+# five seconds.
+
+# Run sync three times before running this script to limit the potential
+# for filesystem corruption
+
 SETGREEN="\033[0;32;40m"
 SETRED="\033[0;31;40m"
 SETYELLOW="\033[0;33;40m"
