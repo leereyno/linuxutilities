@@ -22,4 +22,5 @@ installit()
 
 installit clearcache
 installit updatesrpms
+installit hardreboot
 
