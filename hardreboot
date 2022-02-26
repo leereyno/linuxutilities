@@ -1,0 +1,22 @@
+#!/bin/bash
+
+SETGREEN="\033[0;32;40m"
+SETRED="\033[0;31;40m"
+SETYELLOW="\033[0;33;40m"
+RESETCOLOR="\033[m"
+
+echo ""
+echo -e "$SETRED"
+echo "Hard reboot in 5 seconds"
+echo "Hit CTRL-C to abort"
+echo -e "$RESETCOLOR"
+echo ""
+
+for each in $(seq 5 -1 1) ; do
+	echo -n "$each.."
+	sleep 1
+done
+
+echo 1 > /proc/sys/kernel/sysrq
+echo b > /proc/sysrq-trigger
+
