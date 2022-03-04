@@ -1,0 +1,4 @@
+#!/bin/bash
+
+unbuffer yum --color=no list > /var/log/yumpkgs
+
