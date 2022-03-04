@@ -23,4 +23,5 @@ installit()
 installit clearcache
 installit updatesrpms
 installit hardreboot
+installit updateyumlist
 
