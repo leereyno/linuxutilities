@@ -1,4 +1,16 @@
 #!/bin/bash
 
-unbuffer yum --color=no list > /var/log/yumpkgs
+# Create a list of all the installed and available rpm packages in 
+# /var/log/yumpkgs
+# 
+# Avoids the issue of yum splitting results for a package onto separate
+# lines
 
+TEMPFILE=$(mktemp)
+
+yum -q --color=never list installed | sed 1d | xargs -n3 > $TEMPFILE
+yum -q --color=never list available | sed 1d | xargs -n3 >> $TEMPFILE
+
+cat $TEMPFILE | column -t > /var/log/yumpkgs
+
+/bin/rm -f $TEMPFILE
